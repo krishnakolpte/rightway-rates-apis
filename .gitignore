@@ -2,8 +2,6 @@
 node_modules/
 
 # Runtime JSON data
-stats.json
-rates.json
 nodemon.json
 
 # Logs
