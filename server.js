@@ -12,23 +12,10 @@ const app = express();
 // ------------------------
 // SECURE CORS — Allow only selected frontends
 // ------------------------
-const allowedOrigins = [
-	"https://rightwaygoldloan.in", // your production frontend
-	`http://localhost:${process.env.PORT}`, // dev frontend
-];
 
 app.use(
 	cors({
-		origin: function (origin, callback) {
-			// Allow server-to-server requests (postman/curl/no-origin)
-			if (!origin) return callback(null, true);
-
-			if (allowedOrigins.includes(origin)) {
-				return callback(null, true);
-			} else {
-				return callback(new Error("❌ CORS: Origin Not Allowed"));
-			}
-		},
+		origin: true, // Allow all origins
 		methods: ["GET"],
 		allowedHeaders: ["Content-Type"],
 	}),
